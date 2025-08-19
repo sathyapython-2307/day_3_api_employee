@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: employee-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn employee_project.wsgi
+    autoDeploy: true
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: employee_project.settings
